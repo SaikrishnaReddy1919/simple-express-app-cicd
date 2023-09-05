@@ -1,5 +1,5 @@
 # First stage for building the app
-FROM --platform=linux/amd64 node:16 AS build
+FROM node:16 AS build
 
 # Set the working directory inside the container
 WORKDIR /usr/src/app
@@ -17,7 +17,7 @@ RUN npm ci
 COPY ./ ./
 
 # Second stage for the final image
-FROM --platform=linux/amd64 gcr.io/distroless/nodejs16
+FROM gcr.io/distroless/nodejs16
 
 COPY --from=build /usr/src/app /usr/src/app
 
