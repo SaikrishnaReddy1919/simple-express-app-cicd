@@ -3,6 +3,11 @@ pipeline {
         docker { image 'node:16.13.1-alpine' }  // Use the 'docker-agent' label to specify the agent
     }
 
+    stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
+
     stages {
         stage('Clone repository') {
             steps {
