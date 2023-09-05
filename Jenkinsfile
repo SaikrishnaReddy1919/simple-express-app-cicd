@@ -1,6 +1,7 @@
 pipeline {
     agent {
-        docker { image 'node:16.13.1-alpine' }  // Use the 'docker-agent' label to specify the agent
+        docker { image 'node:16.13.1-alpine' } 
+        args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // Use the 'docker-agent' label to specify the agent
     }
 
     stages {
