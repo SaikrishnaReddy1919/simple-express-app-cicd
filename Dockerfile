@@ -27,4 +27,4 @@ WORKDIR /usr/src/app
 EXPOSE 3000
 
 # Start the application
-CMD ["app.js"]
+CMD ["node","app.js"]
