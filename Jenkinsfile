@@ -1,3 +1,4 @@
+def app
 pipeline {
     agent any
     stages {
@@ -10,7 +11,7 @@ pipeline {
         stage('Build image') {
             steps {
                 script {
-                    def app = docker.build("saikrishnareddy01/express-app-cicd")
+                    app = docker.build("saikrishnareddy01/express-app-cicd")
                 }
             }
         }
